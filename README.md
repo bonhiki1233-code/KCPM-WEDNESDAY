@@ -1,4 +1,4 @@
-Nguồn: Phạm Nguyễn Minh Nghi - môn Công Nghệ Phần Mềm - Giảng viên hướng dẫn thầy Chiến
+Nguồn: Ngô Ngọc Phương Nghi - môn Công Nghệ Phần Mềm - Giảng viên hướng dẫn thầy Chiến
 
 🌐 CollabSphere - Project-Based Learning Management System
 Chào mừng đến với CollabSphere! Đây là đồ án Capstone (Đồ án tốt nghiệp) xây dựng hệ thống quản lý học tập theo dự án, tích hợp AI và Real-time collaboration.
