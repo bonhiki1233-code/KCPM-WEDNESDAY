@@ -1,0 +1,78 @@
+.topic-header h3 {
+    color: #0f172a;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.topic-header .ant-typography-secondary {
+    color: #64748b;
+}
+
+.topic-create-card {
+    background: linear-gradient(135deg, #f8fbff 0%, #f5f7ff 100%) !important;
+    border: 1px solid rgba(148, 163, 184, 0.25) !important;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.topic-create-card .ant-typography {
+    color: #0f172a;
+}
+
+.topic-create-btn {
+    background: #ffffff !important;
+    border-color: #cbd5f5 !important;
+    color: #1e293b !important;
+    border-radius: 10px !important;
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+}
+
+.topic-create-btn:hover {
+    border-color: #8fb3ff !important;
+    color: #2563eb !important;
+}
+
+.topic-toolbar {
+    padding: 8px 0 4px;
+}
+
+.topic-tab.ant-btn-primary {
+    background: #2563eb;
+    border-color: #2563eb;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.28);
+}
+
+.topic-tab.ant-btn-default {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    color: #475569;
+}
+
+.topic-search .ant-input {
+    border-radius: 999px !important;
+    border-color: #e2e8f0;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+
+.topic-table-card {
+    border: 1px solid #eef2f7;
+    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
+}
+
+.topic-table .ant-table-thead>tr>th {
+    background: #f6f8ff !important;
+    color: #0f172a;
+    font-weight: 600;
+}
+
+.topic-table .ant-table-tbody>tr:hover>td {
+    background: #f8fbff;
+}
+
+.topic-table .ant-btn {
+    border-radius: 10px;
+}
+
+.topic-table .ant-space {
+    gap: 12px !important;
+}

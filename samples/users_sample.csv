@@ -1,0 +1,13 @@
+email,full_name,role_name,dept_name,phone
+student1@university.edu,Nguyễn Văn A,STUDENT,Software Engineering,0912345678
+student2@university.edu,Trần Thị B,STUDENT,Software Engineering,0987654321
+student3@university.edu,Phạm Văn C,STUDENT,Computer Science,0901234567
+student4@university.edu,Lê Thị D,STUDENT,Software Engineering,0965432109
+student5@university.edu,Hoàng Văn E,STUDENT,Computer Science,0923456789
+lecturer1@university.edu,Dr. Nguyễn Thế Phát,LECTURER,Software Engineering,0911111111
+lecturer2@university.edu,Dr. Trần Thanh Nhân,LECTURER,Software Engineering,0912222222
+lecturer3@university.edu,Dr. Phạm Quang Hưng,LECTURER,Computer Science,0913333333
+lecturer4@university.edu,Dr. Lê Minh Dũng,LECTURER,Software Engineering,0914444444
+lecturer5@university.edu,Dr. Hoàng Việt Anh,LECTURER,Computer Science,0915555555
+staff1@university.edu,Trần Văn Thành,STAFF,,0920000001
+staff2@university.edu,Phạm Thị Thu Hằng,STAFF,,0920000002

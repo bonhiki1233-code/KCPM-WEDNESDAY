@@ -1,0 +1,11 @@
+subject_code,subject_name,credits,dept_name
+IT101,Lập Trình Python,4,Software Engineering
+IT102,Cấu Trúc Dữ Liệu,4,Software Engineering
+IT103,Cơ Sở Dữ Liệu,3,Software Engineering
+IT104,Web Development,4,Software Engineering
+IT105,Mobile App Development,3,Software Engineering
+CS101,Toán Rời Rạc,4,Computer Science
+CS102,Đại Số Tuyến Tính,3,Computer Science
+CS103,Giải Tích 1,4,Computer Science
+IT201,Hệ Điều Hành,3,Software Engineering
+IT202,Mạng Máy Tính,4,Software Engineering

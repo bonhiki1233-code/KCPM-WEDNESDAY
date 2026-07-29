@@ -1,0 +1,36 @@
+.team-chat {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 100%;
+}
+
+.team-chat__header {
+    background: #fff;
+    border-radius: 16px;
+    padding: 16px 24px;
+    box-shadow: 0 2px 8px rgba(15, 18, 21, 0.06);
+}
+
+.team-chat__body {
+    display: grid;
+    grid-template-columns: minmax(240px, 320px) 1fr;
+    gap: 16px;
+    min-height: 70vh;
+}
+
+.team-chat__sidebar,
+.team-chat__window {
+    min-height: 70vh;
+}
+
+@media (max-width: 1024px) {
+    .team-chat__body {
+        grid-template-columns: 1fr;
+    }
+
+    .team-chat__sidebar,
+    .team-chat__window {
+        min-height: auto;
+    }
+}

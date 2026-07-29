@@ -1,0 +1,4 @@
+email,full_name,role_name,dept_name,phone
+student.test01@example.com,Nguyen Quoc Bao,STUDENT,Software Engineering,0901234567
+lecturer.test01@example.com,Tran Thi Thu Ha,LECTURER,Computer Science,0987654321
+student.test02@example.com,Le Van Tam,STUDENT,Information Systems,0912345678
