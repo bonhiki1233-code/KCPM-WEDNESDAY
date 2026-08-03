@@ -84,24 +84,24 @@ Chúng ta sử dụng kiến trúc Service-Layered đơn giản hóa (Pragmatic 
 Yêu cầu: Máy tính đã cài đặt Docker Desktop.
 
 1. Clone dự án
-Bash
+Mở Terminal và chạy lệnh sau để tải mã nguồn của nhóm về máy:
 
-git clone <https://github.com/Phiadz/CNPM-friday.git>
-cd CNPM-friday
+Bash
+git clone [https://github.com/bonhiki1233-code/KCPM-WEDNESDAY.git](https://github.com/bonhiki1233-code/KCPM-WEDNESDAY.git)
+cd KCPM-WEDNESDAY
 2. Khởi động hệ thống (Chạy bằng Docker)
-Mở Terminal tại thư mục gốc CNPM-FRIDAY và chạy lệnh:
+Mở Terminal tại thư mục gốc KCPM-WEDNESDAY và chạy lệnh:
 
 Bash
-
 # Lần đầu chạy hoặc khi có thư viện mới cần cài đặt:
 docker-compose up --build
 
 # Các lần sau chỉ cần chạy:
 docker-compose up
-3. Truy cập
-Sau khi Terminal hiện log xanh và không báo lỗi, truy cập:
+3. Truy cập  
+Sau khi Terminal hiện log xanh và không báo lỗi, truy cập:  
 
-Backend Swagger UI (API Docs): http://localhost:8000/docs
+Backend Swagger UI (API Docs): http://localhost:8000/docs  
 
 Frontend Web App: http://localhost:3000
 
@@ -111,15 +111,15 @@ Database: Port 5432 (User: collabsphere, Pass: collabsphere_password, DB: collab
 Để tránh xung đột code (Conflict), mọi người tuân thủ quy tắc sau:
 
 1. Nguyên tắc Git
+
 Không bao giờ push code trực tiếp lên nhánh main.
 
-Mỗi chức năng tạo một nhánh riêng từ main:
-
-Cú pháp: feature/[tên-chức-năng] (Ví dụ: feature/login-page, feature/create-project).
+Mỗi chức năng tạo một nhánh riêng từ main. Cú pháp: feature/[tên-chức-năng] (Ví dụ: feature/login-page, feature/create-project).
 
 Khi code xong -> Tạo Pull Request (PR) -> Báo Leader review -> Merge.
 
 2. Nguyên tắc Backend Dev
+
 Chúng ta KHÔNG dùng Repository Pattern phức tạp. Hãy code theo luồng đơn giản:
 
 Models: Kiểm tra models/all_models.py, nếu thiếu bảng thì thêm vào.
@@ -128,38 +128,39 @@ Schemas: Tạo Pydantic model trong schemas/ để kiểm tra dữ liệu gửi 
 
 Endpoints: Viết API trong api/v1/.
 
-Gọi trực tiếp db.execute(select(...)) trong endpoint.
-
-Dùng await cho mọi thao tác Database.
+Gọi trực tiếp db.execute(select(...)) trong endpoint. Dùng await cho mọi thao tác Database.
 
 3. Nguyên tắc Frontend Dev
+
 API Service: Mọi lệnh gọi API phải viết trong src/services/api.js hoặc file service tương ứng (không viết hard-code trong Component).
 
 UI: Sử dụng Ant Design components.
 
 🤖 Hỗ trợ từ AI (Dành cho Member)
-Dự án có sẵn file hướng dẫn cho AI. Khi các bạn dùng ChatGPT/Copilot để code, hãy copy nội dung file .github/copilot-instructions.md đưa cho nó đọc trước.
+Dự án có sẵn file hướng dẫn cho AI. Khi các bạn dùng ChatGPT/Copilot để code, hãy copy nội dung file .github/copilot-instructions.md đưa cho nó đọc trước.  
 
-Prompt mẫu để nhờ AI viết API:
+Prompt mẫu để nhờ AI viết API:  
 
-"Tôi đang làm module [Tên Module]. Dựa vào file models/all_models.py, hãy viết giúp tôi file schemas/[tên].py và api/v1/[tên].py. Sử dụng FastAPI, SQLAlchemy AsyncSession và Pydantic."
+"Tôi đang làm module [Tên Module]. Dựa vào file models/all_models.py, hãy viết giúp tôi file schemas/[tên].py và api/v1/[tên].py. Sử dụng FastAPI, SQLAlchemy AsyncSession và Pydantic."  
 
-❓ Troubleshooting (Sửa lỗi thường gặp)
-1. Lỗi ModuleNotFoundError (Ví dụ: thiếu asyncpg, email-validator) Lỗi này do Docker đang nhớ cache cũ chưa cài thư viện mới.
+❓ Troubleshooting (Sửa lỗi thường gặp)  
+1. Lỗi ModuleNotFoundError (Ví dụ: thiếu asyncpg, email-validator)  
 
-Cách sửa:
+Nguyên nhân: Docker đang nhớ cache cũ chưa cài thư viện mới.  
+
+Cách sửa:  
 
 Bash
-
 docker-compose down
 docker-compose build --no-cache backend
 docker-compose up
-2. Lỗi Database FATAL: database "collabsphere" does not exist Lỗi này do config DB cũ còn lưu.
+2. Lỗi Database FATAL: database "collabsphere" does not exist
 
-Cách sửa (Cẩn thận: Xóa sạch dữ liệu):
+Nguyên nhân: Lỗi này do config DB cũ còn lưu.
+
+Cách sửa (Cẩn thận: Xóa sạch dữ liệu cũ):
 
 Bash
-
 docker-compose down
 docker volume prune -f
 docker-compose up --build
@@ -169,6 +170,4 @@ Kiểm tra xem Backend đã chạy chưa (vào link Swagger xem được không)
 
 Kiểm tra file backend/app/core/config.py xem đã thêm http://localhost:3000 vào BACKEND_CORS_ORIGINS chưa.
 
-
-# các bugs
-nhiều project bị lặp lại là do dùng để test chức năng cuộn của bảng project, chưa có dữ liệu thực tế.
+Lưu ý: Nhiều project bị lặp lại là do dùng để test chức năng cuộn của bảng project, chưa có dữ liệu thực tế.
