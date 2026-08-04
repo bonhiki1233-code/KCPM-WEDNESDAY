@@ -40,3 +40,6 @@ Mỗi công việc chỉ được chuyển sang Done khi đã hoàn thành và c
 - Đã phân công người phụ trách cho từng công việc.
 - Đã thiết lập Priority và Story point.
 - Đã hướng dẫn các thành viên cập nhật trạng thái công việc.
+## Ảnh minh chứng:
+
+![Jira Sprint 1](images/jira-sprint-1.png)
