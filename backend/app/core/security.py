@@ -1,40 +1,32 @@
 """Security utilities for password hashing and JWT tokens."""
 from datetime import datetime, timedelta, timezone
 from typing import Any, Union
-
 from jose import jwt
-from passlib.context import CryptContext
-
 from app.core.config import settings
+import bcrypt
 
 # Maximum password length for bcrypt compatibility (72 bytes)
 MAX_BCRYPT_BYTES = 72
 
-try:  # pragma: no cover - defensive patch for bcrypt>=4.1
-    import bcrypt  # type: ignore
-    from types import SimpleNamespace
-
-    if not hasattr(bcrypt, "__about__") and hasattr(bcrypt, "__version__"):
-        bcrypt.__about__ = SimpleNamespace(__version__=bcrypt.__version__)
-except Exception:  # noqa: BLE001 - failing silently keeps startup resilient
-    pass
-# Setup password hashing (PBKDF2 to avoid bcrypt wheel issues on some platforms)
-pwd_context = CryptContext(
-    schemes=["pbkdf2_sha256"],
-    deprecated="auto",
-)
-
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
-    """Check if plain password matches hashed password."""
-    return pwd_context.verify(plain_password, hashed_password)
+    """Check if plain password matches hashed password using pure bcrypt."""
+    try:
+        password_byte_enc = plain_password.encode('utf-8')
+        hashed_password_byte_enc = hashed_password.encode('utf-8')
+        return bcrypt.checkpw(password_byte_enc, hashed_password_byte_enc)
+    except Exception:
+        return False
 
 
 def get_password_hash(password: str) -> str:
-    """Hash a password for storing in database."""
+    """Hash a password for storing in database using pure bcrypt."""
     if len(password.encode("utf-8")) > MAX_BCRYPT_BYTES:
         raise ValueError("Password must be at most 72 bytes when encoded in UTF-8")
-    return pwd_context.hash(password)
+    pwd_bytes = password.encode('utf-8')
+    salt = bcrypt.gensalt()
+    hashed_password = bcrypt.hashpw(pwd_bytes, salt)
+    return hashed_password.decode('utf-8')
 
 
 def create_access_token(subject: Union[str, Any], expires_delta: timedelta = None) -> str:
