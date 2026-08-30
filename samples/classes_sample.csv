@@ -1,0 +1,11 @@
+class_code,semester_code,subject_code,lecturer_email
+IT101-01,2026-SPRING,IT101,lecturer1@university.edu
+IT101-02,2026-SPRING,IT101,lecturer2@university.edu
+IT102-01,2026-SPRING,IT102,lecturer3@university.edu
+IT103-01,2026-SPRING,IT103,lecturer1@university.edu
+IT104-01,2026-SPRING,IT104,lecturer4@university.edu
+IT105-01,2026-SPRING,IT105,lecturer5@university.edu
+CS101-01,2026-SPRING,CS101,lecturer2@university.edu
+CS102-01,2026-SPRING,CS102,lecturer3@university.edu
+IT201-01,2026-SPRING,IT201,lecturer1@university.edu
+IT202-01,2026-SPRING,IT202,lecturer4@university.edu

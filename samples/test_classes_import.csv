@@ -1,0 +1,6 @@
+class_code,semester_code,subject_code,lecturer_email
+TEST001-01,2026-SPRING,IT101,lecturer@example.com
+TEST001-02,2026-SPRING,IT102,lecturer@example.com
+TEST002-01,2026-SPRING,IT103,lecturer@example.com
+TEST003-01,2026-SPRING,IT101,lecturer@example.com
+TEST004-01,2026-SPRING,IT102,lecturer@example.com

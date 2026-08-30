@@ -1,0 +1,6 @@
+email,full_name,role_name,dept_name,phone
+test.student1@university.edu,Nguyễn Văn Test 1,STUDENT,Software Engineering,0901234567
+test.student2@university.edu,Trần Thị Test 2,STUDENT,Software Engineering,0902345678
+test.lecturer1@university.edu,Lê Văn Test 3,LECTURER,Software Engineering,0903456789
+test.staff1@university.edu,Phạm Thị Test 4,STAFF,,0904567890
+test.student3@university.edu,Hoàng Văn Test 5,STUDENT,Computer Networks,0905678901

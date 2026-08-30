@@ -1,0 +1,65 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.pyo
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Environment
+.env
+.env.local
+.env.*.local
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+__MACOSX/
+
+# Logs
+*.log
+connection.log
+
+# Test files
+*.ps1
+test_*.py
+*_test.py
+test_results.txt
+qa_test_*.json
+QA_*.md
+
+# Misc
+*.bak
+*.tmp
+
+# Documentation folders (not needed for running)
+Giao_Viec/
+Giao_Viec_2/
+Giai-doan 3-4/
+ARCHITECTURE.md
+stash_files.txt
+Json swagger.txt
+api_endpoints.json
+seed_data.py
+
+# Mac files
+__MACOSX/
+
+# Backend docs
+backend/HOW_TO_USE.md
+backend/RBAC_NOTES.md
+
+# Keep only essential README
+!README.md
+!backend/README.md
+!frontend/README.md

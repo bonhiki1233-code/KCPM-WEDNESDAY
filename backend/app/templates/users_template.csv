@@ -1,0 +1,6 @@
+email,full_name,role_name,dept_name,phone
+student1@university.edu,Nguyễn Văn A,STUDENT,Software Engineering,0912345678
+student2@university.edu,Trần Thị B,STUDENT,Software Engineering,0987654321
+lecturer1@university.edu,Lê Văn C,LECTURER,Software Engineering,0901234567
+staff1@university.edu,Phạm Thị D,STAFF,,0923456789
+headdept1@university.edu,Hoàng Văn E,HEAD_DEPT,Software Engineering,0934567890
