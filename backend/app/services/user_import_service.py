@@ -62,10 +62,10 @@ async def import_users(db: AsyncSession, users: List[UserImportRow]) -> Tuple[Us
     
     # Cache roles/depts to avoid repeated DB calls
     roles = (await db.execute(select(Role))).scalars().all()
-    role_map = {r.role_name: r.role_id for r in roles}
+    role_map = {r.role_name.upper(): r.role_id for r in roles}
     
     depts = (await db.execute(select(Department))).scalars().all()
-    dept_map = {d.dept_name: d.dept_id for d in depts}
+    dept_map = {d.dept_name.upper(): d.dept_id for d in depts}
     
     for i, user_in in enumerate(users, start=1):
         result_row = UserImportResultRow(
@@ -95,7 +95,7 @@ async def import_users(db: AsyncSession, users: List[UserImportRow]) -> Tuple[Us
             # 3. Get Dept ID (optional)
             dept_id = None
             if user_in.dept_name:
-                dept_id = dept_map.get(user_in.dept_name)
+                dept_id = dept_map.get(user_in.dept_name.upper())
                 # If dept doesn't exist, maybe create it? Or error?
                 # Let's assume error for now to enforce consistency
                 if not dept_id and user_in.role_name in ['LECTURER', 'STUDENT']:
