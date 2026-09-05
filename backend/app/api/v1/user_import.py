@@ -79,7 +79,7 @@ async def import_users_from_file(
         HTTPException 422: Invalid data in file
     """
     # Check permission: Only ADMIN or STAFF can import users
-    if current_user.role.role_name not in ['ADMIN', 'STAFF']:
+    if current_user.role.role_name.upper() not in ['ADMIN', 'STAFF']:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="Only ADMIN and STAFF can import users"
@@ -137,7 +137,7 @@ async def download_import_template(
         HTTPException 403: User lacks permission
     """
     # Check permission
-    if current_user.role.role_name not in ['ADMIN', 'STAFF']:
+    if current_user.role.role_name.upper() not in ['ADMIN', 'STAFF']:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="Only ADMIN and STAFF can access import template"
