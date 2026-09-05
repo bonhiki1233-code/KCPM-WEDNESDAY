@@ -297,6 +297,43 @@ async def reject_topic(
     }
 
 
+@router.put("/{topic_id}")
+async def update_topic(
+    topic_id: int,
+    topic_update: TopicUpdate,
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db)
+):
+    # Role check: only lecturers can update
+    if current_user.role_id != 4:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only lecturers can update topics"
+        )
+
+    # Get topic
+    query = select(Topic).where(Topic.topic_id == topic_id)
+    result = await db.execute(query)
+    topic = result.scalar()
+    
+    if not topic:
+        raise HTTPException(status_code=404, detail="Topic not found")
+        
+    if topic.creator_id != current_user.user_id:
+        raise HTTPException(status_code=403, detail="Not authorized to update this topic")
+        
+    if topic.status not in ['DRAFT', 'REJECTED']:
+        raise HTTPException(status_code=400, detail="Can only update topics in DRAFT or REJECTED status")
+
+    update_data = topic_update.dict(exclude_unset=True)
+    for field, value in update_data.items():
+        setattr(topic, field, value)
+        
+    topic.updated_at = datetime.now(timezone.utc)
+    await db.commit()
+    await db.refresh(topic)
+    return topic
+
 @router.delete("/{topic_id}")
 async def delete_topic(
     topic_id: int,
