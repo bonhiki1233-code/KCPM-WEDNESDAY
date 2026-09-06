@@ -91,9 +91,9 @@ async def create_milestone(
     
     db.add(new_milestone)
     await db.commit()
-    await db.refresh(new_milestone)
-    
-    return new_milestone
+    stmt = select(Milestone).options(selectinload(Milestone.checkpoints)).where(Milestone.milestone_id == new_milestone.milestone_id)
+    result = await db.execute(stmt)
+    return result.scalar_one()
 
 
 @router.get(

@@ -1,0 +1,10 @@
+testcase_id,title_length,weight,expected_status,description
+TC_MILE_01,128,0.5,201,All Nominal
+TC_MILE_02,1,0.5,201,Title Min (1)
+TC_MILE_03,2,0.5,201,Title Min+ (2)
+TC_MILE_04,254,0.5,201,Title Max- (254)
+TC_MILE_05,255,0.5,201,Title Max (255)
+TC_MILE_06,128,0.0,201,Weight Min (0.0)
+TC_MILE_07,128,0.1,201,Weight Min+ (0.1)
+TC_MILE_08,128,0.9,201,Weight Max- (0.9)
+TC_MILE_09,128,1.0,201,Weight Max (1.0)

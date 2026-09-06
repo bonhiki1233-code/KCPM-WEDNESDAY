@@ -2702,7 +2702,16 @@
                       "script": {
                         "type": "text/javascript",
                         "exec": [
-                          "pm.test(\"Status code hợp lệ (201 Created)\", function () {\n    pm.response.to.have.status(201);\n});\nif (pm.response.code === 201) {\n    var jsonData = pm.response.json();\n    pm.environment.set(\"topic_id\", jsonData.topic_id); // Tự động lưu ID để dùng cho Update và Delete\n    pm.test(\"Tạo Topic thành công\", function () {\n        pm.expect(jsonData).to.have.property(\"topic_id\");\n        pm.expect(jsonData.title).to.eql(\"Hệ thống quản lý điểm danh bằng nhận diện khuôn mặt\");\n    });\n}"
+                          "let expected = parseInt(pm.iterationData.get(\"expected_status\"));\nlet test_name = pm.iterationData.get(\"testcase_id\") + \" - \" + pm.iterationData.get(\"description\");\n\npm.test(test_name, function () {\n    pm.response.to.have.status(expected);\n});"
+                        ]
+                      }
+                    },
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                          "let title_len = parseInt(pm.iterationData.get(\"title_length\"));\nlet req_len = parseInt(pm.iterationData.get(\"req_length\"));\n\nif(title_len > 0) {\n    pm.variables.set(\"bva_title\", \"T\".repeat(title_len));\n}\nif(req_len > 0) {\n    pm.variables.set(\"bva_req\", \"R\".repeat(req_len));\n}"
                         ]
                       }
                     }
@@ -2731,7 +2740,7 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\n  \"title\": \"Hệ thống quản lý điểm danh bằng nhận diện khuôn mặt\",\n  \"description\": \"Dùng OpenCV và Deep Learning\",\n  \"requirements\": \"Python, ReactJS\"\n}",
+                      "raw": "{\n  \"title\": \"{{bva_title}}\",\n  \"requirements\": \"{{bva_req}}\",\n  \"team_size\": {{team_size}}\n}",
                       "options": {
                         "raw": {
                           "language": "json"

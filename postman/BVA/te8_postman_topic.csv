@@ -1,0 +1,12 @@
+testcase_id,title_length,team_size,req_length,expected_status,description
+TC_TOPIC_01,128,5,500,201,All Nominal
+TC_TOPIC_02,1,5,500,201,Title Min (1)
+TC_TOPIC_03,2,5,500,201,Title Min+ (2)
+TC_TOPIC_04,254,5,500,201,Title Max- (254)
+TC_TOPIC_05,255,5,500,201,Title Max (255)
+TC_TOPIC_06,128,4,500,201,Team Min (4)
+TC_TOPIC_07,128,6,500,201,Team Max (6)
+TC_TOPIC_08,128,5,1,201,Req Min (1)
+TC_TOPIC_09,128,5,2,201,Req Min+ (2)
+TC_TOPIC_10,128,5,999,201,Req Max- (999)
+TC_TOPIC_11,128,5,1000,201,Req Max (1000)
