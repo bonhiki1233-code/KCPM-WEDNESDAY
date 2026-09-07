@@ -1,0 +1,58 @@
+[
+  {
+    "TC_ID": "TC_SE_01",
+    "semester_code": "SP25",
+    "start_date": "2025-01-01",
+    "end_date": "2025-04-30",
+    "limit_mentor": 4,
+    "expected_status": 201
+  },
+  {
+    "TC_ID": "TC_SE_02",
+    "semester_code": "",
+    "start_date": "2025-01-01",
+    "end_date": "2025-04-30",
+    "limit_mentor": 4,
+    "expected_status": 400
+  },
+  {
+    "TC_ID": "TC_SE_03",
+    "semester_code": "A_VERY_LONG_STRING_OVER_255_CHARACTERS",
+    "start_date": "2025-01-01",
+    "end_date": "2025-04-30",
+    "limit_mentor": 4,
+    "expected_status": 400
+  },
+  {
+    "TC_ID": "TC_SE_04",
+    "semester_code": "FA24", 
+    "start_date": "2025-01-01",
+    "end_date": "2025-04-30",
+    "limit_mentor": 4,
+    "expected_status": 409
+  },
+  {
+    "TC_ID": "TC_SE_05",
+    "semester_code": "SU25",
+    "start_date": "2025-04-30",
+    "end_date": "2025-01-01",
+    "limit_mentor": 4,
+    "expected_status": 422
+  },
+  {
+    "TC_ID": "TC_SE_06",
+    "semester_code": "SU25",
+    "start_date": "2025-01-01",
+    "end_date": "2025-04-30",
+    "limit_mentor": 0,
+    "expected_status": 422
+  },
+  {
+    "TC_ID": "TC_SE_07",
+    "semester_code": "SU25",
+    "start_date": "2025-01-01",
+    "end_date": "2025-04-30",
+    "limit_mentor": "abc",
+    "expected_status": 422
+  }
+]

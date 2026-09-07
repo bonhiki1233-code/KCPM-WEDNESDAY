@@ -1,0 +1,50 @@
+[
+  {
+    "TC_ID": "TC_CHECK_01",
+    "submission_method": "file",
+    "file_extension": "zip",
+    "file_size_mb": 10,
+    "github_link": "",
+    "expected_status": 201
+  },
+  {
+    "TC_ID": "TC_CHECK_02",
+    "submission_method": "github",
+    "file_extension": "",
+    "file_size_mb": 0,
+    "github_link": "https://github.com/bonhiki1233-code/KCPM-WEDNESDAY",
+    "expected_status": 201
+  },
+  {
+    "TC_ID": "TC_CHECK_03",
+    "submission_method": "",
+    "file_extension": "",
+    "file_size_mb": 0,
+    "github_link": "",
+    "expected_status": 400
+  },
+  {
+    "TC_ID": "TC_CHECK_04",
+    "submission_method": "file",
+    "file_extension": "exe",
+    "file_size_mb": 2,
+    "github_link": "",
+    "expected_status": 400
+  },
+  {
+    "TC_ID": "TC_CHECK_05",
+    "submission_method": "file",
+    "file_extension": "zip",
+    "file_size_mb": 60,
+    "github_link": "",
+    "expected_status": 413
+  },
+  {
+    "TC_ID": "TC_CHECK_06",
+    "submission_method": "github",
+    "file_extension": "",
+    "file_size_mb": 0,
+    "github_link": "not-a-link",
+    "expected_status": 422
+  }
+]
