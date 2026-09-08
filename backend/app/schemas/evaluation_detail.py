@@ -107,6 +107,9 @@ class IndividualScoreCalculation(BaseModel):
     def calculate(cls, student_id: str, group_score: float, avg_peer_rating: float, 
                   student_name: str = None, reviews_count: int = 0):
         """Calculate individual score using BR-01 formula"""
+        if group_score < 0 or avg_peer_rating < 0:
+            raise ValueError("Dữ liệu không hợp lệ, điểm không được âm.")
+            
         raw_score = group_score * (avg_peer_rating / 10)
         final_score = min(raw_score, 10.0)  # Cap at 10
         
