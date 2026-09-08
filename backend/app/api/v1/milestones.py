@@ -32,9 +32,6 @@ router = APIRouter(prefix="/milestones", tags=["milestones"])
 
 
 # ==========================================
-# MILESTONE ENDPOINTS
-# ==========================================
-
 @router.post(
     "",
     response_model=MilestoneResponse,

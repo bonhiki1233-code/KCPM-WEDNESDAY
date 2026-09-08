@@ -8,7 +8,20 @@ from app.schemas.topic import TopicCreate, EvaluationCreate
 
 class TopicService:
     @staticmethod
+    def validate_topic_creation(title: str, description: Optional[str] = None):
+        """Validates topic constraints for BVA testing"""
+        if len(title) == 0:
+            raise ValueError("Title cannot be empty")
+        if len(title) > 255:
+            raise ValueError("Title length cannot exceed 255 characters")
+        if description and len(description) > 1000:
+            raise ValueError("Description length cannot exceed 1000 characters")
+        return True
+
+    @staticmethod
     async def create_topic(db: AsyncSession, topic_in: TopicCreate, user_id: int) -> Topic:
+        TopicService.validate_topic_creation(topic_in.title, topic_in.description)
+        
         new_topic = Topic(
             title=topic_in.title,
             description=topic_in.description,

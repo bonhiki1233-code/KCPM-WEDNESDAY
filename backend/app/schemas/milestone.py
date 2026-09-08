@@ -25,6 +25,16 @@ class CheckpointBase(BaseModel):
 # CREATE SCHEMAS
 # ==========================================
 
+def validate_milestone_limits(title: str, weight: float):
+    """Validates milestone constraints for BVA testing"""
+    if len(title) == 0:
+        raise ValueError("Title cannot be empty")
+    if len(title) > 255:
+        raise ValueError("Title length cannot exceed 255 characters")
+    if weight < 0.0 or weight > 1.0:
+        raise ValueError("Weight must be between 0 and 1")
+    return True
+
 class MilestoneCreate(BaseModel):
     """Schema for creating a milestone."""
     class_id: int = Field(..., gt=0, description="Academic class ID")
