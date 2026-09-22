@@ -1,16 +1,17 @@
 """Topic schemas for request/response validation."""
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, constr
 from typing import Optional
 from datetime import datetime
 from uuid import UUID
 
 class TopicCreate(BaseModel):
-    title: str
+    title: str = Field(..., min_length=1, max_length=255, pattern=r'^[\w\s\-.,!?]+$')
     description: Optional[str] = None
-    requirements: Optional[str] = None
+    requirements: str = Field(..., min_length=1, max_length=1000, pattern=r'^[\w\s\-.,!?\n]+$')
     objectives: Optional[str] = None
     tech_stack: Optional[str] = None
+    team_size: int = Field(5, ge=5, le=6)
 
 class TopicUpdate(BaseModel):
     title: Optional[str] = None
